@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SassyByte Math Card Game</title>
+
+ 
+</head>
+
+<body>
+  <audio id="legendarySound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e4f4b4d.mp3?filename=magic-coin-6861.mp3"></audio>
+
+
+  <div class="game-container">
+    <div id="questionOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; z-index:999;">
+  <div style="background:#222; padding:20px; border-radius:12px; max-width:320px; width:90%; text-align:center;">
+    <h2>Answer to unlock this card</h2>
+    <p id="questionText" style="margin:10px 0 15px;"></p>
+    <input id="answerInput" type="number" style="padding:8px; width:100%; border-radius:6px; border:none; margin-bottom:10px;">
+    <div id="questionError" style="color:#ff6b6b; min-height:18px; font-size:14px;"></div>
+    <button id="submitAnswer" style="margin-top:10px; padding:8px 14px; border:none; border-radius:6px; background:#4caf50; color:white; cursor:pointer;">Submit</button>
+    <button id="cancelQuestion" style="margin-top:10px; margin-left:8px; padding:8px 14px; border:none; border-radius:6px; background:#555; color:white; cursor:pointer;">Cancel</button>
+  </div>
+</div>
+    <div id="groupCompleteOverlay" style="
+  display:none; position:fixed; inset:0; 
+  background:rgba(0,0,0,0.85); 
+  z-index:1000; 
+  display:flex; align-items:center; justify-content:center;
+">
+  <div style="text-align:center;">
+    <h1 id="completeGroupName" style="font-size:40px; margin-bottom:20px;"></h1>
+    <p style="font-size:22px; margin-bottom:20px;">You collected every card!</p>
+    <button id="closeGroupComplete" style="
+      padding:10px 20px; 
+      border:none; 
+      border-radius:8px; 
+      background:#2ad4c4; 
+      color:#000; 
+      font-weight:bold; 
+      cursor:pointer;
+    ">Awesome!</button>
+  </div>
+</div>
+<div id="legendaryReveal" style="
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.85);
+  z-index:2000; 
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column;
+  text-align:center;
+">
+  <button id="closeLegendary" style="
+    margin-top:30px; padding:12px 24px;
+    border:none; border-radius:8px;
+    background:gold; color:#000;
+    font-weight:bold; cursor:pointer;
+  ">Awesome!</button>
+</div>
+  <canvas id="legendaryCanvas" width="600" height="600" style="position:absolute; top:0; left:0;"></canvas>
+
+  <h1 style="font-size:48px; color:gold; text-shadow:0 0 20px gold;">
+    ⭐ LEGENDARY CARD! ⭐
+  </h1>
+
+  <p id="legendaryName" style="font-size:26px; margin-top:10px;"></p>
+
+  
+
+
+
+    <h1>SassyByte Math Card Game</h1>
+    <button id="nextCardBtn" style="padding:10px 20px; margin:15px 0; border:none; border-radius:8px; background:#2ad4c4; color:#000; font-weight:bold; cursor:pointer;">
+  Next Card
+</button>
+    <button id="openBinderBtn" style="
+  padding:10px 20px; 
+  margin:10px 0; 
+  border:none; 
+  border-radius:8px; 
+  background:#b38bff; 
+  color:#000; 
+  font-weight:bold; 
+  cursor:pointer;
+">
+  Open Binder
+</button>
+
+    <p id="groupStatus" style="margin-top:10px; font-size:18px; font-weight:bold;"></p>
+
+
+    <p>Tap a card to flip it!</p>
+
+ <div id="singleCardSlot" style="margin-top:20px;"></div>
+    <div id="binderOverlay" style="
+  display:none; 
+  position:fixed; 
+  inset:0; 
+  background:rgba(0,0,0,0.95); 
+  z-index:3000; 
+  overflow-y:auto; 
+  padding:30px;
+">
+  <h1 style="text-align:center; margin-bottom:20px;">📘 Your Card Binder</h1>
+
+  <button id="closeBinderBtn" style="
+    position:fixed; 
+    top:20px; 
+    right:20px; 
+    padding:10px 20px; 
+    border:none; 
+    border-radius:8px; 
+    background:#2ad4c4; 
+    color:#000; 
+    font-weight:bold; 
+    cursor:pointer;
+  ">Close</button>
+
+  <div id="binderContent"></div>
+</div>
+
+
+
+ 
+
+</body>
+</html>
