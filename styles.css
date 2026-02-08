@@ -1,0 +1,282 @@
+
+    /* --------------------------------------------------
+       GLOBAL RESET + BASE
+    -------------------------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #111;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* --------------------------------------------------
+       GAME LAYOUT
+    -------------------------------------------------- */
+    .game-container {
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    /* --------------------------------------------------
+       CARD BASE
+    -------------------------------------------------- */
+    .card {
+      width: 160px;
+      height: 240px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    /* --------------------------------------------------
+       CARD SIDES
+    -------------------------------------------------- */
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-back {
+      background: #222;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    /* --------------------------------------------------
+       GROUP BACKGROUNDS
+    -------------------------------------------------- */
+    .bg-pink { background: #ffb6d9; }
+    .bg-purple { background: #b38bff; }
+    .bg-yellow { background: #ffe066; }
+    .bg-black { background: #000; }
+    .bg-green { background: #4caf50; }
+    .bg-teal { background: #2ad4c4; }
+@keyframes legendaryPulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+.legendary-reveal-text {
+  animation: legendaryPulse 1.5s infinite ease-in-out;
+}
+
+
+    /* --------------------------------------------------
+       RARITY GLOWS
+    -------------------------------------------------- */
+    .common {
+      box-shadow: 0 0 6px rgba(255,255,255,0.2);
+    }
+
+    .rare {
+      box-shadow: 0 0 10px #4da6ff;
+      border: 2px solid #4da6ff;
+    }
+
+    .epic {
+      box-shadow: 0 0 14px #c44dff;
+      border: 2px solid #c44dff;
+    }
+
+    /* LEGENDARY — animated gold glow */
+    .legendary {
+      border: 3px solid gold;
+      animation: legendaryGlow 2s infinite alternate;
+    }
+.binder-group-title {
+  font-size: 28px;
+  margin: 20px 0 10px;
+  color: #2ad4c4;
+}
+
+.binder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.binder-card {
+  width: 120px;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #444;
+}
+
+.binder-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.binder-locked {
+  filter: grayscale(100%) brightness(40%);
+  position: relative;
+}
+
+.binder-locked::after {
+  content: "🔒";
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  font-size: 28px;
+  opacity: 0.8;
+}
+
+.binder-new {
+  animation: binderGlow 1.5s ease-out;
+}
+
+@keyframes binderGlow {
+  0% { box-shadow: 0 0 0px gold; }
+  100% { box-shadow: 0 0 25px gold; }
+}
+
+
+    @keyframes legendaryGlow {
+      0% { box-shadow: 0 0 10px gold; }
+      100% { box-shadow: 0 0 25px gold; }
+    }
+@keyframes popIn {
+  0% { transform: scale(0.2); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.pop-in {
+  animation: popIn 0.4s ease-out;
+}
+
+
+    /* --------------------------------------------------
+       SPECIAL CARD EFFECTS
+    -------------------------------------------------- */
+
+    /* Emily Collection — soft pink sparkle */
+    .bg-pink.legendary {
+      animation: emilySparkle 3s infinite ease-in-out;
+    }
+
+    @keyframes emilySparkle {
+      0% { box-shadow: 0 0 10px #ff8ac9; }
+      100% { box-shadow: 0 0 25px #ff5fbf; }
+    }
+
+    /* K‑Pop Legendary #19 — main card shimmer */
+    .featured-card {
+      animation: kpopShimmer 2.5s infinite linear;
+      border: 3px solid #d9b3ff;
+    }
+
+    @keyframes kpopShimmer {
+      0% { box-shadow: 0 0 12px #d9b3ff; }
+      50% { box-shadow: 0 0 25px #b366ff; }
+      100% { box-shadow: 0 0 12px #d9b3ff; }
+    }
+
+    /* Fun Collection — black noise texture */
+    .bg-black {
+      background: #000 url("https://grainy-gradients.vercel.app/noise.svg");
+      background-size: cover;
+    }
+
+    /* SassyByte — neon tech glow */
+    .bg-teal.epic,
+    .bg-teal.legendary {
+      animation: sassyPulse 2s infinite alternate;
+    }
+
+    @keyframes sassyPulse {
+      0% { box-shadow: 0 0 10px #2ad4c4; }
+      100% { box-shadow: 0 0 25px #00ffee; }
+    }
+
+    /* --------------------------------------------------
+       RESPONSIVE
+    -------------------------------------------------- */
+    @media (max-width: 600px) {
+      .card {
+        width: 130px;
+        height: 200px;
+      }
+    }
+#singleCardSlot .card {
+  width: 300px;
+  height: 420px;
+}
+/* Center the drawn card container */
+#singleCardSlot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 420px; /* adjust if you want more space */
+}
+
+/* Make the drawn card larger */
+#singleCardSlot .card {
+  width: 320px;   /* bigger width */
+  height: 460px;  /* bigger height */
+}
+
+/* Ensure the flip animation scales correctly */
+#singleCardSlot .card-inner {
+  width: 100%;
+  height: 100%;
+}
+
+#singleCardSlot .card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+  
