@@ -1,6 +1,4 @@
-/* --------------------------------------------------
-   GLOBAL RESET + BASE
--------------------------------------------------- */
+
 * {
   margin: 0;
   padding: 0;
@@ -202,8 +200,6 @@ body {
 /* --------------------------------------------------
    SPECIAL CARD EFFECTS
 -------------------------------------------------- */
-
-/* Emily Collection — soft pink sparkle */
 .bg-pink.legendary {
   animation: emilySparkle 3s infinite ease-in-out;
 }
@@ -213,7 +209,6 @@ body {
   100% { box-shadow: 0 0 25px #ff5fbf; }
 }
 
-/* K‑Pop Legendary #19 — shimmer */
 .featured-card {
   animation: kpopShimmer 2.5s infinite linear;
   border: 3px solid #d9b3ff;
@@ -225,13 +220,11 @@ body {
   100% { box-shadow: 0 0 12px #d9b3ff; }
 }
 
-/* Fun Collection — black noise texture */
 .bg-black {
   background: #000 url("https://grainy-gradients.vercel.app/noise.svg");
   background-size: cover;
 }
 
-/* SassyByte — neon tech glow */
 .bg-teal.epic,
 .bg-teal.legendary {
   animation: sassyPulse 2s infinite alternate;
@@ -241,7 +234,10 @@ body {
   0% { box-shadow: 0 0 10px #2ad4c4; }
   100% { box-shadow: 0 0 25px #00ffee; }
 }
-/* Center cards on screens wider than 760px */
+
+/* --------------------------------------------------
+   RESPONSIVE — CENTER + SCALE CARDS
+-------------------------------------------------- */
 @media (min-width: 760px) {
 
   /* Center the single drawn card */
@@ -251,7 +247,7 @@ body {
     align-items: center;
   }
 
-  /* Center the grid of cards (if you ever show multiple) */
+  /* Center any card grids */
   .card-grid {
     justify-content: center;
   }
@@ -260,29 +256,21 @@ body {
   .binder-grid {
     justify-items: center;
   }
-}
-/* Make cards bigger on screens wider than 760px */
-@media (min-width: 760px) {
+
+  /* Bigger cards */
   .card {
     width: 220px;
     height: 330px;
   }
 
-  /* Make the drawn card even bigger if you want */
+  /* Even bigger drawn card */
   #singleCardSlot .card {
     width: 260px;
     height: 390px;
   }
-
-  /* Keep the flip animation scaling correctly */
-  .card-inner,
-  .card-front img {
-    width: 100%;
-    height: 100%;
-  }
 }
 
-
+/* Extra large screens */
 @media (min-width: 1200px) {
   .card {
     width: 260px;
