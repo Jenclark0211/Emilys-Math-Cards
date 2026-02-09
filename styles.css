@@ -234,39 +234,4 @@ body {
   100% { box-shadow: 0 0 25px #00ffee; }
 }
 
-/* --------------------------------------------------
-   RESPONSIVE — CENTER + SCALE CARDS
--------------------------------------------------- */
-@media (min-width: 760px) {
 
-  #singleCardSlot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .card-grid {
-    justify-content: center;
-  }
-
-  .binder-grid {
-    justify-items: center;
-  }
-
-  .card {
-    width: 220px;
-    height: 330px;
-  }
-
-  #singleCardSlot .card {
-    width: 260px;
-    height: 390px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .card {
-    width: 260px;
-    height: 390px;
-  }
-}
