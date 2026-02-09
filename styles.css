@@ -241,3 +241,24 @@ body {
   0% { box-shadow: 0 0 10px #2ad4c4; }
   100% { box-shadow: 0 0 25px #00ffee; }
 }
+/* Center cards on screens wider than 760px */
+@media (min-width: 760px) {
+
+  /* Center the single drawn card */
+  #singleCardSlot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Center the grid of cards (if you ever show multiple) */
+  .card-grid {
+    justify-content: center;
+  }
+
+  /* Center binder cards */
+  .binder-grid {
+    justify-items: center;
+  }
+}
+
