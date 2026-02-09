@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -240,37 +239,31 @@ body {
 -------------------------------------------------- */
 @media (min-width: 760px) {
 
-  /* Center the single drawn card */
   #singleCardSlot {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* Center any card grids */
   .card-grid {
     justify-content: center;
   }
 
-  /* Center binder cards */
   .binder-grid {
     justify-items: center;
   }
 
-  /* Bigger cards */
   .card {
     width: 220px;
     height: 330px;
   }
 
-  /* Even bigger drawn card */
   #singleCardSlot .card {
     width: 260px;
     height: 390px;
   }
 }
 
-/* Extra large screens */
 @media (min-width: 1200px) {
   .card {
     width: 260px;
